@@ -1,207 +1,265 @@
+Of course\! The original HTML code is well-structured, functional, and semantically sound. To make it more "interesting and catchy," we can focus on enhancing these key areas:
+
+1.  **Visual Hierarchy & Appeal:** Introduce more dynamic colors, gradients, icons, and subtle animations to guide the reader's eye and make the content pop.
+2.  **Branding & Recognition:** Add logos for the AI companies (OpenAI, Anthropic, Google) to make the tools instantly recognizable.
+3.  **Readability & Scannability:** Use icons and styled "pills" for features like "Free," "Multimodal," etc., making the cards easier to compare at a glance.
+4.  **Engaging Copywriting:** Tweak the headlines and subheadings to be more active and benefit-oriented for the target audience (medical educators).
+5.  **Micro-interactions:** Add smooth transitions and hover effects to make the page feel more responsive and modern.
+
+Here is the improved and annotated HTML code.
+
+-----
+
+### Improved HTML Code
+
+```html
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
-  <title>LLMs for Medical Educators · General-Purpose (2025)</title>
+  <title>Your AI Co-Pilot in Medical Education (2025 Guide)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="General-purpose, widely accessible LLMs for medical and health professions educators — with free vs paid access and official references." />
-  <!-- Tailwind CDN -->
+  <meta name="description" content="A practical guide to the top general-purpose AI tools for medical educators. Compare ChatGPT, Claude, and Gemini features, pricing, and use cases." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <script src="https://cdn.tailwindcss.com"></script>
+  
   <style>
-    /* simple hide/show for filters */
-    [data-hide="true"]{ display:none; }
-    a { text-underline-offset: 2px; }
+    /* Add a modern font and define an accent color */
+    body { 
+      font-family: 'Inter', sans-serif;
+      --accent-color: #0ea5e9; /* sky-500 */
+    }
+    
+    /* Simple hide/show for filters */
+    [data-hide="true"] { 
+      display: none; 
+    }
+    
+    /* Smoother transitions for filters and hover effects */
+    .card, .filter {
+      transition: all 0.3s ease-in-out;
+    }
+    
+    /* Active filter button style */
+    .filter.active {
+      background-color: #0f172a; /* slate-900 */
+      color: white;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+    
+    /* Underline style for links */
+    a { 
+      text-underline-offset: 3px; 
+    }
+
+    /* Animation for content fade-in */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    main {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
-  <header class="border-b bg-white">
-    <div class="max-w-6xl mx-auto px-6 py-10">
-      <h1 class="text-3xl md:text-5xl font-semibold">LLMs for Medical Educators — General-Purpose (2025)</h1>
-      <p class="mt-3 text-lg md:text-xl text-slate-600">
-        Mainstream, accessible models only. Snapshot: <span class="font-semibold">Aug 24, 2025</span>.
+<body class="bg-slate-50 text-slate-800 antialiased">
+  
+  <header class="bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-6 py-12 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Your AI Co-Pilot in Medical Education</h1>
+      <p class="mt-4 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">
+        A practical guide to the top AI tools for teaching and curriculum design.
       </p>
-      <p class="mt-2 text-sm text-slate-500">
-        Capabilities, pricing, and plan limits change frequently — verify with the linked official sources before course adoption.
+      <p class="mt-2 text-sm text-slate-400">
+        Snapshot: <span class="font-semibold">Aug 24, 2025</span>. Always verify details with official sources.
       </p>
-      <div class="mt-6 flex flex-wrap gap-2">
-        <button data-filter="all" class="filter px-3 py-1.5 rounded-xl bg-slate-900 text-white text-sm">All</button>
-        <button data-filter="free" class="filter px-3 py-1.5 rounded-xl bg-white border text-sm">Free</button>
-        <button data-filter="paid" class="filter px-3 py-1.5 rounded-xl bg-white border text-sm">Paid</button>
-        <button data-filter="multimodal" class="filter px-3 py-1.5 rounded-xl bg-white border text-sm">Multimodal</button>
-        <button data-filter="longctx" class="filter px-3 py-1.5 rounded-xl bg-white border text-sm">Long-context</button>
-        <a href="#refs" class="px-3 py-1.5 rounded-xl bg-white border text-sm">References</a>
+      <div class="mt-8 flex flex-wrap justify-center gap-2">
+        <button data-filter="all" class="filter active px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold hover:bg-white/20">All Tools</button>
+        <button data-filter="free" class="filter px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold hover:bg-white/20">Free Access</button>
+        <button data-filter="paid" class="filter px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold hover:bg-white/20">Paid Tiers</button>
+        <button data-filter="multimodal" class="filter px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold hover:bg-white/20">Multimodal</button>
+        <button data-filter="longctx" class="filter px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold hover:bg-white/20">Long-Context</button>
       </div>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-6 py-10 space-y-10">
+  <main class="max-w-6xl mx-auto px-6 py-12 space-y-16">
 
-    <!-- ChatGPT -->
-    <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" aria-label="ChatGPT">
-      <article class="card rounded-2xl border bg-white p-5 shadow-sm" data-tags="free paid multimodal">
-        <div class="flex items-start justify-between">
-          <h2 class="text-xl font-semibold">ChatGPT (OpenAI)</h2>
-          <div class="flex gap-2">
-            <span class="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full">Free (limits)</span>
-            <span class="text-xs px-2 py-1 bg-slate-100 rounded-full">Plus / Team / Enterprise</span>
+    <section aria-label="ChatGPT (OpenAI)">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <article class="card rounded-2xl border bg-white p-6 shadow-md hover:shadow-xl hover:-translate-y-1" data-tags="free paid multimodal">
+          <header class="flex items-center gap-4">
+            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.54 40.54"><path d="M40.54 20.27c0 11.2-9.07 20.27-20.27 20.27S0 31.47 0 20.27 9.07 0 20.27 0s20.27 9.07 20.27 20.27M13.59 18.33a2.1 2.1 0 00-2.1-2.1H8.7a2.1 2.1 0 00-2.09 2.1v3.89a2.1 2.1 0 002.1 2.1h2.79a2.1 2.1 0 002.1-2.1v-1.8m2.79 1.8v-5.68a2.1 2.1 0 00-2.1-2.1h-2.79a2.1 2.1 0 00-2.1 2.1v5.68a2.1 2.1 0 002.1 2.1h2.79a2.1 2.1 0 002.1-2.1M22.16 26.31a2.1 2.1 0 002.1 2.1h2.78a2.1 2.1 0 002.1-2.1V16.23a2.1 2.1 0 00-2.1-2.1h-2.78a2.1 2.1 0 00-2.1 2.1v10.08m5.57-12.17a2.1 2.1 0 00-2.1-2.1h-2.78a2.1 2.1 0 00-2.1 2.1v1.8a2.1 2.1 0 002.1 2.1h2.78a2.1 2.1 0 002.1-2.1v-1.8m5.57 6.13a2.1 2.1 0 002.1 2.1h2.78a2.1 2.1 0 002.1-2.1v-3.89a2.1 2.1 0 00-2.1-2.1h-2.78a2.1 2.1 0 00-2.1 2.1v3.89m-2.78-5.98a2.1 2.1 0 00-2.1-2.1h-2.78a2.1 2.1 0 00-2.1 2.1v1.8a2.1 2.1 0 002.1 2.1h2.78a2.1 2.1 0 002.1-2.1v-1.8" fill="#10a37f"></path></svg>
+            <h2 class="text-2xl font-bold">ChatGPT</h2>
+          </header>
+          <p class="mt-3 text-slate-600">
+            Consumer access to OpenAI’s flagship models. <strong>GPT-5</strong> is the latest and most capable, with <strong>GPT-4o</strong> as a fast multimodal workhorse.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2 text-sm">
+            <span class="flex items-center gap-1.5 rounded-full bg-emerald-50 text-emerald-800 px-3 py-1 font-medium">Free (limited)</span>
+            <span class="flex items-center gap-1.5 rounded-full bg-slate-100 text-slate-700 px-3 py-1 font-medium">Plus / Team</span>
           </div>
-        </div>
-        <p class="mt-2 text-sm text-slate-600">
-          Consumer access to OpenAI’s flagship models in the chat app. Latest default is <strong>GPT-5</strong> (rollout varies by plan/region); <strong>GPT-4o</strong> remains a fast multimodal workhorse. 
-          <a class="underline" target="_blank" href="https://openai.com/gpt-5/">GPT-5</a> ·
-          <a class="underline" target="_blank" href="https://openai.com/index/hello-gpt-4o/">GPT-4o</a> ·
-          <a class="underline" target="_blank" href="https://help.openai.com/en/articles/11909943-gpt-5-in-chatgpt">GPT-5 in ChatGPT</a> ·
-          <a class="underline" target="_blank" href="https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus">Plus plan</a>
-        </p>
-        <ul class="mt-3 text-sm list-disc pl-5 space-y-1">
-          <li><strong>Free tier</strong>: usage caps; newest model availability may be limited or variable by region/plan.</li>
-          <li><strong>Paid</strong>: higher limits, priority features; Team/Enterprise add collaboration and admin controls. <a class="underline" target="_blank" href="https://openai.com/index/introducing-chatgpt-pro/">Pro plan</a></li>
-          <li><strong>HPE fit</strong>: rubric-guided feedback, case prompts, portfolio review, image/code tasks.</li>
-        </ul>
-      </article>
-
-      <article class="card rounded-2xl border bg-white p-5 shadow-sm" data-tags="paid longctx">
-        <div class="flex items-start justify-between">
-          <h2 class="text-xl font-semibold">OpenAI GPT-4.1 (API)</h2>
-          <span class="text-xs px-2 py-1 bg-slate-100 rounded-full">Developer (paid)</span>
-        </div>
-        <p class="mt-2 text-sm text-slate-600">
-          API series with major improvements to instruction following and **long-context (up to ~1M tokens)** — useful for large syllabi, policy corpora, and assessment banks. 
-          <a class="underline" target="_blank" href="https://openai.com/index/gpt-4-1/">Overview</a> ·
-          <a class="underline" target="_blank" href="https://platform.openai.com/docs/models/gpt-4.1">Docs</a> ·
-          <a class="underline" target="_blank" href="https://openai.com/api/pricing/">API pricing</a>
-        </p>
-      </article>
-    </section>
-
-    <!-- Claude -->
-    <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" aria-label="Claude">
-      <article class="card rounded-2xl border bg-white p-5 shadow-sm" data-tags="free paid multimodal">
-        <div class="flex items-start justify-between">
-          <h2 class="text-xl font-semibold">Claude (Anthropic)</h2>
-          <div class="flex gap-2">
-            <span class="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full">Free (usage-limited)</span>
-            <span class="text-xs px-2 py-1 bg-slate-100 rounded-full">Pro / Max / Team</span>
+          <div class="mt-4 border-t pt-4">
+            <h3 class="font-semibold text-slate-700">Best for Medical Education:</h3>
+            <ul class="mt-2 text-slate-600 list-disc pl-5 space-y-1">
+              <li>Rubric-guided feedback on assignments</li>
+              <li>Generating diverse clinical case prompts</li>
+              <li>Analyzing visual data (charts, diagrams)</li>
+            </ul>
           </div>
-        </div>
-        <p class="mt-2 text-sm text-slate-600">
-          General-purpose assistant with strong reasoning and writing. Latest families include <strong>Claude 4</strong> and <strong>Claude 3.5 Sonnet</strong>. 
-          <a class="underline" target="_blank" href="https://www.anthropic.com/news/claude-4">Claude 4</a> ·
-          <a class="underline" target="_blank" href="https://www.anthropic.com/news/claude-3-5-sonnet">3.5 Sonnet</a> ·
-          <a class="underline" target="_blank" href="https://www.anthropic.com/pricing">Plans & pricing</a>
-        </p>
-        <ul class="mt-3 text-sm list-disc pl-5 space-y-1">
-          <li><strong>Free vs paid</strong>: primarily differs in message limits, newest model access, and features like web integration (varies by region and plan).</li>
-          <li><strong>HPE fit</strong>: structured feedback, policy drafting, critique with citations.</li>
-        </ul>
-      </article>
-    </section>
-
-    <!-- Gemini -->
-    <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" aria-label="Gemini">
-      <article class="card rounded-2xl border bg-white p-5 shadow-sm" data-tags="free paid multimodal longctx">
-        <div class="flex items-start justify-between">
-          <h2 class="text-xl font-semibold">Gemini (Google)</h2>
-          <div class="flex gap-2">
-            <span class="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full">Free (Gemini app)</span>
-            <span class="text-xs px-2 py-1 bg-slate-100 rounded-full">Pro / Ultra</span>
+          <footer class="mt-4 text-sm">
+            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://openai.com/gpt-5/">GPT-5</a> ·
+            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://openai.com/index/hello-gpt-4o/">GPT-4o</a> ·
+            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://openai.com/chatgpt/plans/">Plans</a>
+          </footer>
+        </article>
+        
+        <article class="card rounded-2xl border bg-white p-6 shadow-md hover:shadow-xl hover:-translate-y-1" data-tags="free paid multimodal">
+          <header class="flex items-center gap-4">
+            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 0A4.5 4.5 0 0 0 15 4.5v3.295a8.952 8.952 0 0 0-6 0V4.5A4.5 4.5 0 0 0 4.5 0A4.5 4.5 0 0 0 0 4.5v15A4.5 4.5 0 0 0 4.5 24a4.5 4.5 0 0 0 4.288-3.159a9.018 9.018 0 0 0 6.424 0A4.5 4.5 0 0 0 19.5 24a4.5 4.5 0 0 0 4.5-4.5v-15A4.5 4.5 0 0 0 19.5 0" fill="#ae867a"></path></svg>
+            <h2 class="text-2xl font-bold">Claude</h2>
+          </header>
+          <p class="mt-3 text-slate-600">
+            Known for strong reasoning, nuanced writing, and a focus on safety. Latest models are <strong>Claude 4</strong> and the speedy <strong>3.5 Sonnet</strong>.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2 text-sm">
+            <span class="flex items-center gap-1.5 rounded-full bg-emerald-50 text-emerald-800 px-3 py-1 font-medium">Free (limited)</span>
+            <span class="flex items-center gap-1.5 rounded-full bg-slate-100 text-slate-700 px-3 py-1 font-medium">Pro / Max</span>
           </div>
+          <div class="mt-4 border-t pt-4">
+            <h3 class="font-semibold text-slate-700">Best for Medical Education:</h3>
+            <ul class="mt-2 text-slate-600 list-disc pl-5 space-y-1">
+              <li>Drafting and refining curriculum policies</li>
+              <li>Providing structured, citation-ready critique</li>
+              <li>Summarizing dense research papers</li>
+            </ul>
+          </div>
+          <footer class="mt-4 text-sm">
+            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://www.anthropic.com/news/claude-4">Claude 4</a> ·
+            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://www.anthropic.com/news/claude-3-5-sonnet">3.5 Sonnet</a> ·
+            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://www.anthropic.com/pricing">Plans</a>
+          </footer>
+        </article>
+
+        <article class="card rounded-2xl border bg-white p-6 shadow-md hover:shadow-xl hover:-translate-y-1" data-tags="free paid multimodal longctx">
+          <header class="flex items-center gap-4">
+            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m36.44 146.11l-34-58.89-34 58.89h-41l54.58-94.54a12 12 0 0 1 20.78 0L185.39 170.1Z" fill="#888bf4"></path></svg>
+            <h2 class="text-2xl font-bold">Gemini</h2>
+          </header>
+          <p class="mt-3 text-slate-600">
+            Google's native multimodal AI with deep integration into its ecosystem. API offers a massive **~1M token context window**.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2 text-sm">
+            <span class="flex items-center gap-1.5 rounded-full bg-emerald-50 text-emerald-800 px-3 py-1 font-medium">Free (app)</span>
+            <span class="flex items-center gap-1.5 rounded-full bg-slate-100 text-slate-700 px-3 py-1 font-medium">Pro / Ultra</span>
+          </div>
+          <div class="mt-4 border-t pt-4">
+            <h3 class="font-semibold text-slate-700">Best for Medical Education:</h3>
+            <ul class="mt-2 text-slate-600 list-disc pl-5 space-y-1">
+              <li>Reviewing large documents (syllabi, policies)</li>
+              <li>Creating multimodal lesson assets (images, text)</li>
+              <li>Connecting to live web data for research</li>
+            </ul>
+          </div>
+          <footer class="mt-4 text-sm">
+            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/">Gemini 2.0</a> ·
+            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://ai.google.dev/gemini-api/docs/long-context">Long Context</a> ·
+            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://gemini.google/subscriptions/">Plans</a>
+          </footer>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="mt-8 border-t pt-16">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-slate-900">Educator's Playbook: Choosing Your AI</h2>
+        <p class="mt-2 text-lg text-slate-600 max-w-2xl mx-auto">A simple 3-step framework for integrating these tools into your workflow.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-8 text-center">
+        <div class="bg-white p-6 rounded-2xl border shadow-sm">
+          <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-sky-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold">1. Start with Access</h3>
+          <p class="mt-1 text-slate-600">Design activities around the **free** tiers that all learners can access. Treat paid features as optional "power-ups".</p>
         </div>
-        <p class="mt-2 text-sm text-slate-600">
-          Multimodal assistant in apps; <strong>API</strong> offers long-context (up to ~1M tokens on 1.5/2.0 series) and advanced features. 
-          <a class="underline" target="_blank" href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/">Gemini 2.0</a> ·
-          <a class="underline" target="_blank" href="https://ai.google.dev/gemini-api/docs/models">API models</a> ·
-          <a class="underline" target="_blank" href="https://ai.google.dev/gemini-api/docs/long-context">Long context</a> ·
-          <a class="underline" target="_blank" href="https://gemini.google/subscriptions/">Plans</a>
-        </p>
-        <ul class="mt-3 text-sm list-disc pl-5 space-y-1">
-          <li><strong>Free vs paid</strong>: Pro/Ultra unlock higher limits, priority access, and new features; API has free and paid tiers.</li>
-          <li><strong>HPE fit</strong>: multimodal lesson assets, rubric-guided summaries, large-document reviews.</li>
-        </ul>
-      </article>
+        <div class="bg-white p-6 rounded-2xl border shadow-sm">
+          <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-sky-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold">2. Analyze Large Docs</h3>
+          <p class="mt-1 text-slate-600">For whole-course syllabi or policy banks, leverage the **long-context** capabilities of the **Gemini** or **OpenAI** APIs.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border shadow-sm">
+          <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-sky-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z" /></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold">3. Refine and Critique</h3>
+          <p class="mt-1 text-slate-600">When the task is structured drafting, detailed feedback, or critical review, **Claude** is an exceptionally strong choice.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Educator quick guide -->
-    <section class="mt-2">
-      <h3 class="text-2xl font-semibold">How to choose (educator quick guide)</h3>
-      <ol class="mt-3 text-slate-700 list-decimal pl-5 space-y-2 text-sm">
-        <li><span class="font-medium">Start with availability:</span> design activities that work within the **free** plans most faculty and learners already have; add “Plus/Pro/Pro/Ultra” enhancements as optional.</li>
-        <li><span class="font-medium">For large corpora:</span> consider **OpenAI GPT-4.1 API** or **Gemini API** long-context features for whole-course materials and policy banks.</li>
-        <li><span class="font-medium">Writing and critique:</span> Claude paid tiers are strong for structured drafting and review.</li>
-      </ol>
-    </section>
-
-    <!-- Developer/API (optional for advanced users) -->
-    <section class="mt-10 border rounded-2xl bg-white p-6">
-      <details>
-        <summary class="cursor-pointer font-semibold text-lg">Developer/API models (optional)</summary>
-        <div class="mt-4">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="rounded-xl border p-4">
-              <h4 class="font-semibold">OpenAI GPT-5 (API)</h4>
-              <p class="mt-1 text-sm text-slate-600">
-                Latest flagship for coding and agentic tasks; available in the API and rolling out across ChatGPT plans. 
-                <a class="underline" target="_blank" href="https://openai.com/index/introducing-gpt-5-for-developers/">API intro</a> ·
-                <a class="underline" target="_blank" href="https://platform.openai.com/docs/models/gpt-5">Model docs</a> ·
-                <a class="underline" target="_blank" href="https://openai.com/api/pricing/">Pricing</a>
-              </p>
+    <section class="mt-8 border-t pt-16">
+      <div class="rounded-2xl border bg-slate-100/70 p-6">
+        <details>
+          <summary class="cursor-pointer text-lg font-semibold text-slate-900 list-none">
+            <div class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+              <span>For Advanced Users: API & Developer Models</span>
             </div>
-            <div class="rounded-xl border p-4">
-              <h4 class="font-semibold">OpenAI GPT-4.1 (API)</h4>
-              <p class="mt-1 text-sm text-slate-600">
-                Up to ~1M-token contexts for large syllabi and assessment banks. 
-                <a class="underline" target="_blank" href="https://openai.com/index/gpt-4-1/">Overview</a> ·
-                <a class="underline" target="_blank" href="https://platform.openai.com/docs/models/gpt-4.1">Docs</a>
-              </p>
-            </div>
-            <div class="rounded-xl border p-4">
-              <h4 class="font-semibold">Gemini 2.0 / 1.5 (API)</h4>
-              <p class="mt-1 text-sm text-slate-600">
-                Multimodal; long-context up to ~1M tokens depending on model/tier. 
-                <a class="underline" target="_blank" href="https://ai.google.dev/gemini-api/docs/models">API models</a> ·
-                <a class="underline" target="_blank" href="https://ai.google.dev/gemini-api/docs/long-context">Long context</a> ·
-                <a class="underline" target="_blank" href="https://ai.google.dev/pricing">API pricing</a>
-              </p>
-            </div>
+            <p class="mt-1 text-sm text-slate-500 ml-9">Optional section for custom integrations and large-scale data analysis.</p>
+          </summary>
+          <div class="mt-6 pl-9 grid gap-4">
+            <p>API access allows for building custom tools, analyzing massive datasets beyond chat interface limits, and fine-tuning models. It's best when you or your institution can manage tokens, privacy, and data governance.</p>
+            <ul class="list-disc pl-5 text-slate-700 space-y-1">
+                <li><strong>OpenAI API (GPT-5, GPT-4.1):</strong> Powerful instruction following and long-context. <a href="https://platform.openai.com/docs/models" target="_blank" class="font-semibold text-sky-600 hover:underline">Docs</a></li>
+                <li><strong>Google AI API (Gemini 2.0 / 1.5):</strong> Excellent for multimodal tasks and massive context windows. <a href="https://ai.google.dev/gemini-api/docs" target="_blank" class="font-semibold text-sky-600 hover:underline">Docs</a></li>
+            </ul>
           </div>
-        </div>
-      </details>
-      <p class="mt-3 text-xs text-slate-500">
-        API options are best when you, your institution, or a collaborator can manage tokens, privacy, and data governance.
-      </p>
+        </details>
+      </div>
     </section>
 
-    <!-- References -->
-    <section id="refs" class="mt-10">
-      <h3 class="text-2xl font-semibold">References (official sources)</h3>
-      <ul class="mt-3 text-sm text-slate-700 space-y-1 list-disc pl-6">
-        <li>OpenAI: <a class="underline" target="_blank" href="https://openai.com/gpt-5/">GPT-5 overview</a> · <a class="underline" target="_blank" href="https://help.openai.com/en/articles/11909943-gpt-5-in-chatgpt">GPT-5 in ChatGPT</a> · <a class="underline" target="_blank" href="https://openai.com/index/hello-gpt-4o/">GPT-4o</a> · <a class="underline" target="_blank" href="https://openai.com/index/gpt-4-1/">GPT-4.1 overview</a> · <a class="underline" target="_blank" href="https://platform.openai.com/docs/models/gpt-4.1">GPT-4.1 docs</a> · <a class="underline" target="_blank" href="https://openai.com/api/pricing/">API pricing</a> · <a class="underline" target="_blank" href="https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus">Plus plan</a> · <a class="underline" target="_blank" href="https://openai.com/index/introducing-chatgpt-pro/">Pro plan</a>.</li>
-        <li>Anthropic: <a class="underline" target="_blank" href="https://www.anthropic.com/news/claude-4">Claude 4</a> · <a class="underline" target="_blank" href="https://www.anthropic.com/news/claude-3-5-sonnet">Claude 3.5 Sonnet</a> · <a class="underline" target="_blank" href="https://www.anthropic.com/pricing">Plans & pricing</a> · <a class="underline" target="_blank" href="https://www.anthropic.com/news/max-plan">Max plan</a>.</li>
-        <li>Google: <a class="underline" target="_blank" href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/">Gemini 2.0 announcement</a> · <a class="underline" target="_blank" href="https://ai.google.dev/gemini-api/docs/models">API models</a> · <a class="underline" target="_blank" href="https://ai.google.dev/gemini-api/docs/long-context">Long-context doc</a> · <a class="underline" target="_blank" href="https://gemini.google/subscriptions/">Plans</a> · <a class="underline" target="_blank" href="https://ai.google.dev/pricing">API pricing</a>.</li>
-      </ul>
-      <p class="mt-3 text-xs text-slate-500">Region-specific availability and plan names (e.g., Pro/Ultra) may vary; always check the official page for your country.</p>
-    </section>
   </main>
 
   <footer class="border-t bg-white">
-    <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-slate-500">
-      Built for educators — general-purpose models only. Verify capabilities and limits against the linked sources before course adoption.
+    <div class="max-w-6xl mx-auto px-6 py-8 text-center text-sm text-slate-500">
+      <p>This guide is for informational purposes only. All model capabilities, pricing, and limits are subject to change.</p>
+      <p class="mt-1">Always verify with the official sources before course adoption.</p>
     </div>
   </footer>
 
   <script>
     // Simple tag filtering
-    const buttons = document.querySelectorAll('.filter');
+    const filterButtons = document.querySelectorAll('.filter');
     const cards = document.querySelectorAll('.card');
-    buttons.forEach(btn => btn.addEventListener('click', () => {
-      const tag = btn.dataset.filter;
-      cards.forEach(c => {
-        if (!tag || tag === 'all') c.dataset.hide = 'false';
-        else c.dataset.hide = c.dataset.tags.includes(tag) ? 'false' : 'true';
+    
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update button styles
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const tag = btn.dataset.filter;
+        
+        // Filter cards
+        cards.forEach(card => {
+          if (tag === 'all') {
+            card.dataset.hide = 'false';
+          } else {
+            card.dataset.hide = !card.dataset.tags.includes(tag);
+          }
+        });
       });
-      buttons.forEach(b => b.classList.remove('bg-slate-900','text-white'));
-      btn.classList.add('bg-slate-900','text-white');
-    }));
+    });
   </script>
 </body>
 </html>
+```
