@@ -1,36 +1,31 @@
-# LLM Models for Medical Educators — 2025
+# LLMs for Medical Educators: 2025 Reference Guide
 
-A lightweight GitHub Pages site that tracks leading large language models (LLMs) and practical educator-facing use cases. It foregrounds model capabilities that matter in health professions education (multimodality, long-context, reasoning), and links to primary sources and reviews.
+A curated, educator-friendly reference for **general-purpose Large Language Models** that medical and health professions educators can readily access for teaching, assessment, and educational research.
 
-> Scope: general-purpose frontier models (OpenAI, Google, Anthropic), strong open models (Meta, Mistral), enterprise RAG-centric (Cohere), and health-domain LLMs (Med-PaLM 2, AMIE). See references below.
+> **Snapshot disclaimer (August 2025):** Capabilities, pricing, and access tiers change frequently. Always confirm details with the official links provided before institutional adoption.
 
-## Who this is for
-Medical and health professions educators, program directors, and education researchers who need a concise, citable overview when planning curricula, assessment, and faculty development.
+---
 
-## Quick start (GitHub Pages)
-1. Create a public repo and add `index.html` (from this project).
-2. Add this `README.md` for documentation.
-3. In GitHub: Settings → Pages → Build from branch → `main` (root) → Save.
-4. Your site will be available at `https://<username>.github.io/<repo>`.
+## Why this guide exists
 
-## Customize
-- Edit the **Model Cards** inside `index.html` to add or retire models.
-- Keep the **References** section aligned to primary sources and peer-reviewed reviews.
-- To add institutional policy links, use the “Governance and policy” list near the end of `index.html`.
+Medical educators need practical guidance on which AI tools are actually available, reliable, and suitable for educational use. This site focuses on **mainstream, accessible LLMs** rather than specialized medical AI models that most educators cannot access or evaluate properly.
 
-## Models at a glance (snapshot: Aug 24, 2025)
-| Model | Modality | Max context (tokens) | Notes |
-|---|---|---:|---|
-| OpenAI **GPT-5** | Text, vision, audio | Not disclosed | New default in ChatGPT with improved instruction following and reduced hallucinations; GPT-5 Pro for extended reasoning. [Ref](https://openai.com/index/introducing-gpt-5/) |
-| OpenAI **GPT-4.1** (API) | Text, vision, long-context | up to 1,000,000 | Strong long-context and instruction following at lower cost vs 4o. [Ref](https://openai.com/index/gpt-4-1/) |
-| Google **Gemini 2.0** | Multimodal in/out, agentic | — | Agentic features and multimodal output; Live APIs. [Ref](https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/) |
-| Google **Gemini 1.5/Pro** | Text, vision, long-context | up to 1,000,000 | Long-context scenarios for code and large docs. [Ref](https://ai.google.dev/gemini-api/docs/long-context) |
-| Anthropic **Claude 3.5 Sonnet** | Text, vision | 200,000 | Strong coding and vision; computer-use beta. [Ref](https://www.anthropic.com/news/claude-3-5-sonnet) |
-| Meta **Llama 3.1 405B** | Text (open weights) | — | Large open model family for local or hosted use. [Ref](https://ai.meta.com/blog/meta-llama-3-1/) |
-| **Mistral Large 2** | Text | — | Reasoning, code, multilingual improvements. [Ref](https://mistral.ai/news/mistral-large-2407) |
-| Cohere **Command R+ (08-2024)** | Text | 128,000 | Optimized for RAG and tool use. [Ref](https://docs.cohere.com/docs/command-r-plus) |
-| Google **Med-PaLM 2** | Text, health domain | — | Expert-level on USMLE-style items; medical focus. [Ref](https://sites.research.google/med-palm/) |
-| Google **AMIE** (Nature 2025) | Text, health domain | — | Interactive assistant for differential diagnosis. [Ref](https://www.nature.com/articles/s41586-025-08869-4) |
+**What you'll find here:**
+- Current consumer and developer LLM options with clear access requirements
+- Free vs. paid tier comparisons relevant to educational budgets
+- Key capabilities that matter for health professions education (HPE)
+- Quick-start guidance for GitHub Pages deployment
+
+---
+
+## How educators are already using these tools
+
+- Generating **feedback on student essays** using structured rubrics  
+- Designing **interactive case-based discussions** with multimodal prompts  
+- Supporting **faculty development** (workshop outlines, role-play scripts)  
+- Summarizing **large policy or curricular documents** for busy committees  
+
+---
 
 ## Evidence and cautions for educators
 - Reviews of LLMs in medical education and assessment discuss opportunities and persistent limitations such as study quality and outcome measurement. See Lucas et al. 2024, Vrdoljak et al. 2025, Gordon et al. 2024, Feigerlova et al. 2025.  
