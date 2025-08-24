@@ -1,76 +1,207 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LLM Comparison for Medical Educators</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <title>LLMs for Medical Educators · General-Purpose (2025)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="General-purpose, widely accessible LLMs for medical and health professions educators — with free vs paid access and official references." />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* simple hide/show for filters */
+    [data-hide="true"]{ display:none; }
+    a { text-underline-offset: 2px; }
+  </style>
 </head>
-<body>
-  <header>
-    <h1>General Purpose LLMs for Medical Educators</h1>
-    <p>This site compares features of major language models to support teaching and research in medicine.</p>
+<body class="bg-slate-50 text-slate-800">
+  <header class="border-b bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-10">
+      <h1 class="text-3xl md:text-5xl font-semibold">LLMs for Medical Educators — General-Purpose (2025)</h1>
+      <p class="mt-3 text-lg md:text-xl text-slate-600">
+        Mainstream, accessible models only. Snapshot: <span class="font-semibold">Aug 24, 2025</span>.
+      </p>
+      <p class="mt-2 text-sm text-slate-500">
+        Capabilities, pricing, and plan limits change frequently — verify with the linked official sources before course adoption.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        <button data-filter="all" class="filter px-3 py-1.5 rounded-xl bg-slate-900 text-white text-sm">All</button>
+        <button data-filter="free" class="filter px-3 py-1.5 rounded-xl bg-white border text-sm">Free</button>
+        <button data-filter="paid" class="filter px-3 py-1.5 rounded-xl bg-white border text-sm">Paid</button>
+        <button data-filter="multimodal" class="filter px-3 py-1.5 rounded-xl bg-white border text-sm">Multimodal</button>
+        <button data-filter="longctx" class="filter px-3 py-1.5 rounded-xl bg-white border text-sm">Long-context</button>
+        <a href="#refs" class="px-3 py-1.5 rounded-xl bg-white border text-sm">References</a>
+      </div>
+    </div>
   </header>
-  <main>
-    <table id="llm-table">
-      <thead>
-        <tr>
-          <th>Model</th>
-          <th>Developer</th>
-          <th>Access</th>
-          <th>Strengths for Medical Education</th>
-          <th>Considerations</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>ChatGPT (GPT-4o)</td>
-          <td>OpenAI</td>
-          <td>Web app, API (paid tiers)</td>
-          <td>Broad knowledge base, plugins, code interpreter, simulation of clinical scenarios.</td>
-          <td>May hallucinate; patient data must be de-identified.</td>
-        </tr>
-        <tr>
-          <td>Claude 3</td>
-          <td>Anthropic</td>
-          <td>Web app, API; free tier available</td>
-          <td>200K+ token context; emphasis on ethical and safe responses.</td>
-          <td>Occasionally refuses queries viewed as risky; fewer integrations.</td>
-        </tr>
-        <tr>
-          <td>Google Gemini 1.5</td>
-          <td>Google DeepMind</td>
-          <td>Web, API; integrated with Google products</td>
-          <td>Strong multimodal reasoning; image analysis for diagrams and radiographs.</td>
-          <td>Full features require Google Cloud; licensing depends on region.</td>
-        </tr>
-        <tr>
-          <td>Mistral Large</td>
-          <td>Mistral AI</td>
-          <td>API; some models open-source</td>
-          <td>Efficient, open weights allow on-prem deployment for protected data.</td>
-          <td>Smaller ecosystem; technical setup required.</td>
-        </tr>
-        <tr>
-          <td>Qwen2</td>
-          <td>Alibaba</td>
-          <td>Open-source; API via Alibaba Cloud</td>
-          <td>Strong multilingual support (incl. Chinese); adaptable for research.</td>
-          <td>Documentation primarily in Chinese; deployment expertise needed.</td>
-        </tr>
-        <tr>
-          <td>DeepSeek</td>
-          <td>DeepSeek AI</td>
-          <td>Open-source models</td>
-          <td>Emphasis on reasoning tasks; suitable for fine-tuning on medical datasets.</td>
-          <td>Community support still growing; quality varies by checkpoint.</td>
-        </tr>
-      </tbody>
-    </table>
-    <p class="disclaimer">Information current as of 2024. Capabilities and access may change; always review latest documentation before clinical use.</p>
+
+  <main class="max-w-6xl mx-auto px-6 py-10 space-y-10">
+
+    <!-- ChatGPT -->
+    <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" aria-label="ChatGPT">
+      <article class="card rounded-2xl border bg-white p-5 shadow-sm" data-tags="free paid multimodal">
+        <div class="flex items-start justify-between">
+          <h2 class="text-xl font-semibold">ChatGPT (OpenAI)</h2>
+          <div class="flex gap-2">
+            <span class="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full">Free (limits)</span>
+            <span class="text-xs px-2 py-1 bg-slate-100 rounded-full">Plus / Team / Enterprise</span>
+          </div>
+        </div>
+        <p class="mt-2 text-sm text-slate-600">
+          Consumer access to OpenAI’s flagship models in the chat app. Latest default is <strong>GPT-5</strong> (rollout varies by plan/region); <strong>GPT-4o</strong> remains a fast multimodal workhorse. 
+          <a class="underline" target="_blank" href="https://openai.com/gpt-5/">GPT-5</a> ·
+          <a class="underline" target="_blank" href="https://openai.com/index/hello-gpt-4o/">GPT-4o</a> ·
+          <a class="underline" target="_blank" href="https://help.openai.com/en/articles/11909943-gpt-5-in-chatgpt">GPT-5 in ChatGPT</a> ·
+          <a class="underline" target="_blank" href="https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus">Plus plan</a>
+        </p>
+        <ul class="mt-3 text-sm list-disc pl-5 space-y-1">
+          <li><strong>Free tier</strong>: usage caps; newest model availability may be limited or variable by region/plan.</li>
+          <li><strong>Paid</strong>: higher limits, priority features; Team/Enterprise add collaboration and admin controls. <a class="underline" target="_blank" href="https://openai.com/index/introducing-chatgpt-pro/">Pro plan</a></li>
+          <li><strong>HPE fit</strong>: rubric-guided feedback, case prompts, portfolio review, image/code tasks.</li>
+        </ul>
+      </article>
+
+      <article class="card rounded-2xl border bg-white p-5 shadow-sm" data-tags="paid longctx">
+        <div class="flex items-start justify-between">
+          <h2 class="text-xl font-semibold">OpenAI GPT-4.1 (API)</h2>
+          <span class="text-xs px-2 py-1 bg-slate-100 rounded-full">Developer (paid)</span>
+        </div>
+        <p class="mt-2 text-sm text-slate-600">
+          API series with major improvements to instruction following and **long-context (up to ~1M tokens)** — useful for large syllabi, policy corpora, and assessment banks. 
+          <a class="underline" target="_blank" href="https://openai.com/index/gpt-4-1/">Overview</a> ·
+          <a class="underline" target="_blank" href="https://platform.openai.com/docs/models/gpt-4.1">Docs</a> ·
+          <a class="underline" target="_blank" href="https://openai.com/api/pricing/">API pricing</a>
+        </p>
+      </article>
+    </section>
+
+    <!-- Claude -->
+    <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" aria-label="Claude">
+      <article class="card rounded-2xl border bg-white p-5 shadow-sm" data-tags="free paid multimodal">
+        <div class="flex items-start justify-between">
+          <h2 class="text-xl font-semibold">Claude (Anthropic)</h2>
+          <div class="flex gap-2">
+            <span class="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full">Free (usage-limited)</span>
+            <span class="text-xs px-2 py-1 bg-slate-100 rounded-full">Pro / Max / Team</span>
+          </div>
+        </div>
+        <p class="mt-2 text-sm text-slate-600">
+          General-purpose assistant with strong reasoning and writing. Latest families include <strong>Claude 4</strong> and <strong>Claude 3.5 Sonnet</strong>. 
+          <a class="underline" target="_blank" href="https://www.anthropic.com/news/claude-4">Claude 4</a> ·
+          <a class="underline" target="_blank" href="https://www.anthropic.com/news/claude-3-5-sonnet">3.5 Sonnet</a> ·
+          <a class="underline" target="_blank" href="https://www.anthropic.com/pricing">Plans & pricing</a>
+        </p>
+        <ul class="mt-3 text-sm list-disc pl-5 space-y-1">
+          <li><strong>Free vs paid</strong>: primarily differs in message limits, newest model access, and features like web integration (varies by region and plan).</li>
+          <li><strong>HPE fit</strong>: structured feedback, policy drafting, critique with citations.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Gemini -->
+    <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" aria-label="Gemini">
+      <article class="card rounded-2xl border bg-white p-5 shadow-sm" data-tags="free paid multimodal longctx">
+        <div class="flex items-start justify-between">
+          <h2 class="text-xl font-semibold">Gemini (Google)</h2>
+          <div class="flex gap-2">
+            <span class="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full">Free (Gemini app)</span>
+            <span class="text-xs px-2 py-1 bg-slate-100 rounded-full">Pro / Ultra</span>
+          </div>
+        </div>
+        <p class="mt-2 text-sm text-slate-600">
+          Multimodal assistant in apps; <strong>API</strong> offers long-context (up to ~1M tokens on 1.5/2.0 series) and advanced features. 
+          <a class="underline" target="_blank" href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/">Gemini 2.0</a> ·
+          <a class="underline" target="_blank" href="https://ai.google.dev/gemini-api/docs/models">API models</a> ·
+          <a class="underline" target="_blank" href="https://ai.google.dev/gemini-api/docs/long-context">Long context</a> ·
+          <a class="underline" target="_blank" href="https://gemini.google/subscriptions/">Plans</a>
+        </p>
+        <ul class="mt-3 text-sm list-disc pl-5 space-y-1">
+          <li><strong>Free vs paid</strong>: Pro/Ultra unlock higher limits, priority access, and new features; API has free and paid tiers.</li>
+          <li><strong>HPE fit</strong>: multimodal lesson assets, rubric-guided summaries, large-document reviews.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Educator quick guide -->
+    <section class="mt-2">
+      <h3 class="text-2xl font-semibold">How to choose (educator quick guide)</h3>
+      <ol class="mt-3 text-slate-700 list-decimal pl-5 space-y-2 text-sm">
+        <li><span class="font-medium">Start with availability:</span> design activities that work within the **free** plans most faculty and learners already have; add “Plus/Pro/Pro/Ultra” enhancements as optional.</li>
+        <li><span class="font-medium">For large corpora:</span> consider **OpenAI GPT-4.1 API** or **Gemini API** long-context features for whole-course materials and policy banks.</li>
+        <li><span class="font-medium">Writing and critique:</span> Claude paid tiers are strong for structured drafting and review.</li>
+      </ol>
+    </section>
+
+    <!-- Developer/API (optional for advanced users) -->
+    <section class="mt-10 border rounded-2xl bg-white p-6">
+      <details>
+        <summary class="cursor-pointer font-semibold text-lg">Developer/API models (optional)</summary>
+        <div class="mt-4">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="rounded-xl border p-4">
+              <h4 class="font-semibold">OpenAI GPT-5 (API)</h4>
+              <p class="mt-1 text-sm text-slate-600">
+                Latest flagship for coding and agentic tasks; available in the API and rolling out across ChatGPT plans. 
+                <a class="underline" target="_blank" href="https://openai.com/index/introducing-gpt-5-for-developers/">API intro</a> ·
+                <a class="underline" target="_blank" href="https://platform.openai.com/docs/models/gpt-5">Model docs</a> ·
+                <a class="underline" target="_blank" href="https://openai.com/api/pricing/">Pricing</a>
+              </p>
+            </div>
+            <div class="rounded-xl border p-4">
+              <h4 class="font-semibold">OpenAI GPT-4.1 (API)</h4>
+              <p class="mt-1 text-sm text-slate-600">
+                Up to ~1M-token contexts for large syllabi and assessment banks. 
+                <a class="underline" target="_blank" href="https://openai.com/index/gpt-4-1/">Overview</a> ·
+                <a class="underline" target="_blank" href="https://platform.openai.com/docs/models/gpt-4.1">Docs</a>
+              </p>
+            </div>
+            <div class="rounded-xl border p-4">
+              <h4 class="font-semibold">Gemini 2.0 / 1.5 (API)</h4>
+              <p class="mt-1 text-sm text-slate-600">
+                Multimodal; long-context up to ~1M tokens depending on model/tier. 
+                <a class="underline" target="_blank" href="https://ai.google.dev/gemini-api/docs/models">API models</a> ·
+                <a class="underline" target="_blank" href="https://ai.google.dev/gemini-api/docs/long-context">Long context</a> ·
+                <a class="underline" target="_blank" href="https://ai.google.dev/pricing">API pricing</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <p class="mt-3 text-xs text-slate-500">
+        API options are best when you, your institution, or a collaborator can manage tokens, privacy, and data governance.
+      </p>
+    </section>
+
+    <!-- References -->
+    <section id="refs" class="mt-10">
+      <h3 class="text-2xl font-semibold">References (official sources)</h3>
+      <ul class="mt-3 text-sm text-slate-700 space-y-1 list-disc pl-6">
+        <li>OpenAI: <a class="underline" target="_blank" href="https://openai.com/gpt-5/">GPT-5 overview</a> · <a class="underline" target="_blank" href="https://help.openai.com/en/articles/11909943-gpt-5-in-chatgpt">GPT-5 in ChatGPT</a> · <a class="underline" target="_blank" href="https://openai.com/index/hello-gpt-4o/">GPT-4o</a> · <a class="underline" target="_blank" href="https://openai.com/index/gpt-4-1/">GPT-4.1 overview</a> · <a class="underline" target="_blank" href="https://platform.openai.com/docs/models/gpt-4.1">GPT-4.1 docs</a> · <a class="underline" target="_blank" href="https://openai.com/api/pricing/">API pricing</a> · <a class="underline" target="_blank" href="https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus">Plus plan</a> · <a class="underline" target="_blank" href="https://openai.com/index/introducing-chatgpt-pro/">Pro plan</a>.</li>
+        <li>Anthropic: <a class="underline" target="_blank" href="https://www.anthropic.com/news/claude-4">Claude 4</a> · <a class="underline" target="_blank" href="https://www.anthropic.com/news/claude-3-5-sonnet">Claude 3.5 Sonnet</a> · <a class="underline" target="_blank" href="https://www.anthropic.com/pricing">Plans & pricing</a> · <a class="underline" target="_blank" href="https://www.anthropic.com/news/max-plan">Max plan</a>.</li>
+        <li>Google: <a class="underline" target="_blank" href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/">Gemini 2.0 announcement</a> · <a class="underline" target="_blank" href="https://ai.google.dev/gemini-api/docs/models">API models</a> · <a class="underline" target="_blank" href="https://ai.google.dev/gemini-api/docs/long-context">Long-context doc</a> · <a class="underline" target="_blank" href="https://gemini.google/subscriptions/">Plans</a> · <a class="underline" target="_blank" href="https://ai.google.dev/pricing">API pricing</a>.</li>
+      </ul>
+      <p class="mt-3 text-xs text-slate-500">Region-specific availability and plan names (e.g., Pro/Ultra) may vary; always check the official page for your country.</p>
+    </section>
   </main>
-  <footer>
-    <p>Created for medical educators exploring AI tools.</p>
+
+  <footer class="border-t bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-slate-500">
+      Built for educators — general-purpose models only. Verify capabilities and limits against the linked sources before course adoption.
+    </div>
   </footer>
+
+  <script>
+    // Simple tag filtering
+    const buttons = document.querySelectorAll('.filter');
+    const cards = document.querySelectorAll('.card');
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+      const tag = btn.dataset.filter;
+      cards.forEach(c => {
+        if (!tag || tag === 'all') c.dataset.hide = 'false';
+        else c.dataset.hide = c.dataset.tags.includes(tag) ? 'false' : 'true';
+      });
+      buttons.forEach(b => b.classList.remove('bg-slate-900','text-white'));
+      btn.classList.add('bg-slate-900','text-white');
+    }));
+  </script>
 </body>
 </html>
