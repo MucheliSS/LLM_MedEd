@@ -1,250 +1,358 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <title>Your AI Co-Pilot in Medical Education (2025 Guide)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="A practical guide to the top general-purpose AI tools for medical educators. Compare ChatGPT, Claude, and Gemini features, pricing, and use cases." />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <style>
-    /* Add a modern font and define an accent color */
-    body { 
-      font-family: 'Inter', sans-serif;
-      --accent-color: #0ea5e9; /* sky-500 */
-    }
-    
-    /* Simple hide/show for filters */
-    [data-hide="true"] { 
-      display: none; 
-    }
-    
-    /* Smoother transitions for filters and hover effects */
-    .card, .filter {
-      transition: all 0.3s ease-in-out;
-    }
-    
-    /* Active filter button style */
-    .filter.active {
-      background-color: #0f172a; /* slate-900 */
-      color: white;
-      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    }
-    
-    /* Underline style for links */
-    a { 
-      text-underline-offset: 3px; 
-    }
-
-    /* Animation for content fade-in */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    main {
-      animation: fadeIn 0.8s ease-out forwards;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Medical Education: A Practical Comparison</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f9ff; /* Light Blue/Teal Background */
+            color: #334155;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            height: 350px;
+            max-height: 50vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 450px; }
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #0891b2; /* Cyan-600 */
+            border-bottom-color: #0891b2;
+        }
+        .platform-tab, .persona-btn {
+            transition: all 0.3s ease;
+        }
+        .platform-tab.active, .persona-btn.active {
+            background-color: #0891b2; /* Cyan-600 */
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .table-cell-feature {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
-  
-  <header class="bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-lg">
-    <div class="max-w-6xl mx-auto px-6 py-12 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Your AI Co-Pilot in Medical Education</h1>
-      <p class="mt-4 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">
-        A practical guide to the top AI tools for teaching and curriculum design.
-      </p>
-      <p class="mt-2 text-sm text-slate-400">
-        Snapshot: <span class="font-semibold">Aug 24, 2025</span>. Always verify details with official sources.
-      </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-2">
-        <button data-filter="all" class="filter active px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold hover:bg-white/20">All Tools</button>
-        <button data-filter="free" class="filter px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold hover:bg-white/20">Free Access</button>
-        <button data-filter="paid" class="filter px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold hover:bg-white/20">Paid Tiers</button>
-        <button data-filter="multimodal" class="filter px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold hover:bg-white/20">Multimodal</button>
-        <button data-filter="longctx" class="filter px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold hover:bg-white/20">Long-Context</button>
-      </div>
-    </div>
-  </header>
+<body class="antialiased">
 
-  <main class="max-w-6xl mx-auto px-6 py-12 space-y-16">
-
-    <section aria-label="ChatGPT (OpenAI)">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <article class="card rounded-2xl border bg-white p-6 shadow-md hover:shadow-xl hover:-translate-y-1" data-tags="free paid multimodal">
-          <header class="flex items-center gap-4">
-            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.54 40.54"><path d="M40.54 20.27c0 11.2-9.07 20.27-20.27 20.27S0 31.47 0 20.27 9.07 0 20.27 0s20.27 9.07 20.27 20.27M13.59 18.33a2.1 2.1 0 00-2.1-2.1H8.7a2.1 2.1 0 00-2.09 2.1v3.89a2.1 2.1 0 002.1 2.1h2.79a2.1 2.1 0 002.1-2.1v-1.8m2.79 1.8v-5.68a2.1 2.1 0 00-2.1-2.1h-2.79a2.1 2.1 0 00-2.1 2.1v5.68a2.1 2.1 0 002.1 2.1h2.79a2.1 2.1 0 002.1-2.1M22.16 26.31a2.1 2.1 0 002.1 2.1h2.78a2.1 2.1 0 002.1-2.1V16.23a2.1 2.1 0 00-2.1-2.1h-2.78a2.1 2.1 0 00-2.1 2.1v10.08m5.57-12.17a2.1 2.1 0 00-2.1-2.1h-2.78a2.1 2.1 0 00-2.1 2.1v1.8a2.1 2.1 0 002.1 2.1h2.78a2.1 2.1 0 002.1-2.1v-1.8m5.57 6.13a2.1 2.1 0 002.1 2.1h2.78a2.1 2.1 0 002.1-2.1v-3.89a2.1 2.1 0 00-2.1-2.1h-2.78a2.1 2.1 0 00-2.1 2.1v3.89m-2.78-5.98a2.1 2.1 0 00-2.1-2.1h-2.78a2.1 2.1 0 00-2.1 2.1v1.8a2.1 2.1 0 002.1 2.1h2.78a2.1 2.1 0 002.1-2.1v-1.8" fill="#10a37f"></path></svg>
-            <h2 class="text-2xl font-bold">ChatGPT</h2>
-          </header>
-          <p class="mt-3 text-slate-600">
-            Consumer access to OpenAI’s flagship models. <strong>GPT-5</strong> is the latest and most capable, with <strong>GPT-4o</strong> as a fast multimodal workhorse.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2 text-sm">
-            <span class="flex items-center gap-1.5 rounded-full bg-emerald-50 text-emerald-800 px-3 py-1 font-medium">Free (limited)</span>
-            <span class="flex items-center gap-1.5 rounded-full bg-slate-100 text-slate-700 px-3 py-1 font-medium">Plus / Team</span>
-          </div>
-          <div class="mt-4 border-t pt-4">
-            <h3 class="font-semibold text-slate-700">Best for Medical Education:</h3>
-            <ul class="mt-2 text-slate-600 list-disc pl-5 space-y-1">
-              <li>Rubric-guided feedback on assignments</li>
-              <li>Generating diverse clinical case prompts</li>
-              <li>Analyzing visual data (charts, diagrams)</li>
-            </ul>
-          </div>
-          <footer class="mt-4 text-sm">
-            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://openai.com/gpt-5/">GPT-5</a> ·
-            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://openai.com/index/hello-gpt-4o/">GPT-4o</a> ·
-            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://openai.com/chatgpt/plans/">Plans</a>
-          </footer>
-        </article>
-        
-        <article class="card rounded-2xl border bg-white p-6 shadow-md hover:shadow-xl hover:-translate-y-1" data-tags="free paid multimodal">
-          <header class="flex items-center gap-4">
-            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 0A4.5 4.5 0 0 0 15 4.5v3.295a8.952 8.952 0 0 0-6 0V4.5A4.5 4.5 0 0 0 4.5 0A4.5 4.5 0 0 0 0 4.5v15A4.5 4.5 0 0 0 4.5 24a4.5 4.5 0 0 0 4.288-3.159a9.018 9.018 0 0 0 6.424 0A4.5 4.5 0 0 0 19.5 24a4.5 4.5 0 0 0 4.5-4.5v-15A4.5 4.5 0 0 0 19.5 0" fill="#ae867a"></path></svg>
-            <h2 class="text-2xl font-bold">Claude</h2>
-          </header>
-          <p class="mt-3 text-slate-600">
-            Known for strong reasoning, nuanced writing, and a focus on safety. Latest models are <strong>Claude 4</strong> and the speedy <strong>3.5 Sonnet</strong>.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2 text-sm">
-            <span class="flex items-center gap-1.5 rounded-full bg-emerald-50 text-emerald-800 px-3 py-1 font-medium">Free (limited)</span>
-            <span class="flex items-center gap-1.5 rounded-full bg-slate-100 text-slate-700 px-3 py-1 font-medium">Pro / Max</span>
-          </div>
-          <div class="mt-4 border-t pt-4">
-            <h3 class="font-semibold text-slate-700">Best for Medical Education:</h3>
-            <ul class="mt-2 text-slate-600 list-disc pl-5 space-y-1">
-              <li>Drafting and refining curriculum policies</li>
-              <li>Providing structured, citation-ready critique</li>
-              <li>Summarizing dense research papers</li>
-            </ul>
-          </div>
-          <footer class="mt-4 text-sm">
-            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://www.anthropic.com/news/claude-4">Claude 4</a> ·
-            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://www.anthropic.com/news/claude-3-5-sonnet">3.5 Sonnet</a> ·
-            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://www.anthropic.com/pricing">Plans</a>
-          </footer>
-        </article>
-
-        <article class="card rounded-2xl border bg-white p-6 shadow-md hover:shadow-xl hover:-translate-y-1" data-tags="free paid multimodal longctx">
-          <header class="flex items-center gap-4">
-            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m36.44 146.11l-34-58.89-34 58.89h-41l54.58-94.54a12 12 0 0 1 20.78 0L185.39 170.1Z" fill="#888bf4"></path></svg>
-            <h2 class="text-2xl font-bold">Gemini</h2>
-          </header>
-          <p class="mt-3 text-slate-600">
-            Google's native multimodal AI with deep integration into its ecosystem. API offers a massive **~1M token context window**.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2 text-sm">
-            <span class="flex items-center gap-1.5 rounded-full bg-emerald-50 text-emerald-800 px-3 py-1 font-medium">Free (app)</span>
-            <span class="flex items-center gap-1.5 rounded-full bg-slate-100 text-slate-700 px-3 py-1 font-medium">Pro / Ultra</span>
-          </div>
-          <div class="mt-4 border-t pt-4">
-            <h3 class="font-semibold text-slate-700">Best for Medical Education:</h3>
-            <ul class="mt-2 text-slate-600 list-disc pl-5 space-y-1">
-              <li>Reviewing large documents (syllabi, policies)</li>
-              <li>Creating multimodal lesson assets (images, text)</li>
-              <li>Connecting to live web data for research</li>
-            </ul>
-          </div>
-          <footer class="mt-4 text-sm">
-            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/">Gemini 2.0</a> ·
-            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://ai.google.dev/gemini-api/docs/long-context">Long Context</a> ·
-            <a class="font-semibold text-sky-600 hover:text-sky-700" target="_blank" href="https://gemini.google/subscriptions/">Plans</a>
-          </footer>
-        </article>
-
-      </div>
-    </section>
-
-    <section class="mt-8 border-t pt-16">
-      <div class="text-center">
-        <h2 class="text-3xl font-bold text-slate-900">Educator's Playbook: Choosing Your AI</h2>
-        <p class="mt-2 text-lg text-slate-600 max-w-2xl mx-auto">A simple 3-step framework for integrating these tools into your workflow.</p>
-      </div>
-      <div class="mt-10 grid md:grid-cols-3 gap-8 text-center">
-        <div class="bg-white p-6 rounded-2xl border shadow-sm">
-          <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-sky-100">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-          </div>
-          <h3 class="mt-4 text-lg font-semibold">1. Start with Access</h3>
-          <p class="mt-1 text-slate-600">Design activities around the **free** tiers that all learners can access. Treat paid features as optional "power-ups".</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl border shadow-sm">
-          <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-sky-100">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-          </div>
-          <h3 class="mt-4 text-lg font-semibold">2. Analyze Large Docs</h3>
-          <p class="mt-1 text-slate-600">For whole-course syllabi or policy banks, leverage the **long-context** capabilities of the **Gemini** or **OpenAI** APIs.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl border shadow-sm">
-          <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-sky-100">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z" /></svg>
-          </div>
-          <h3 class="mt-4 text-lg font-semibold">3. Refine and Critique</h3>
-          <p class="mt-1 text-slate-600">When the task is structured drafting, detailed feedback, or critical review, **Claude** is an exceptionally strong choice.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="mt-8 border-t pt-16">
-      <div class="rounded-2xl border bg-slate-100/70 p-6">
-        <details>
-          <summary class="cursor-pointer text-lg font-semibold text-slate-900 list-none">
-            <div class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-              <span>For Advanced Users: API & Developer Models</span>
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-slate-800">AI for Medical Educators</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600">Overview</a>
+                        <a href="#platforms" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600">Platforms</a>
+                        <a href="#tasks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600">Tasks</a>
+                        <a href="#pricing" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600">Plans</a>
+                    </div>
+                </div>
             </div>
-            <p class="mt-1 text-sm text-slate-500 ml-9">Optional section for custom integrations and large-scale data analysis.</p>
-          </summary>
-          <div class="mt-6 pl-9 grid gap-4">
-            <p>API access allows for building custom tools, analyzing massive datasets beyond chat interface limits, and fine-tuning models. It's best when you or your institution can manage tokens, privacy, and data governance.</p>
-            <ul class="list-disc pl-5 text-slate-700 space-y-1">
-                <li><strong>OpenAI API (GPT-5, GPT-4.1):</strong> Powerful instruction following and long-context. <a href="https://platform.openai.com/docs/models" target="_blank" class="font-semibold text-sky-600 hover:underline">Docs</a></li>
-                <li><strong>Google AI API (Gemini 2.0 / 1.5):</strong> Excellent for multimodal tasks and massive context windows. <a href="https://ai.google.dev/gemini-api/docs" target="_blank" class="font-semibold text-sky-600 hover:underline">Docs</a></li>
-            </ul>
-          </div>
-        </details>
-      </div>
-    </section>
+        </nav>
+    </header>
 
-  </main>
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
 
-  <footer class="border-t bg-white">
-    <div class="max-w-6xl mx-auto px-6 py-8 text-center text-sm text-slate-500">
-      <p>This guide is for informational purposes only. All model capabilities, pricing, and limits are subject to change.</p>
-      <p class="mt-1">Always verify with the official sources before course adoption.</p>
-    </div>
-  </footer>
+        <section id="intro" class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">Your AI Co-Pilot for Medical Education</h2>
+            <p class="max-w-3xl mx-auto text-lg text-slate-600">
+                Large Language Models (LLMs) are rapidly evolving from simple chatbots into powerful assistants for curriculum design, clinical training, and medical research. This guide helps you choose the right tool for your specific academic and clinical needs.
+            </p>
+        </section>
 
-  <script>
-    // Simple tag filtering
-    const filterButtons = document.querySelectorAll('.filter');
-    const cards = document.querySelectorAll('.card');
-    
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Update button styles
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+        <section id="overview" class="mb-16 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-center text-slate-800 mb-2">Core Capabilities at a Glance</h3>
+            <p class="text-center text-slate-600 mb-8 max-w-2xl mx-auto">
+                Each AI platform has unique strengths. This chart visualizes their focus across key areas relevant to medical education, from creative content generation to precise, evidence-based research.
+            </p>
+            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
+                <div class="chart-container">
+                    <canvas id="strategyRadarChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="platforms" class="mb-16 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-center text-slate-800 mb-2">Platform Deep Dives</h3>
+            <p class="text-center text-slate-600 mb-8 max-w-2xl mx-auto">
+                Explore the core features, strengths, and ideal use cases for the leading AI platforms in the medical education landscape.
+            </p>
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+                <button data-platform="chatgpt" class="platform-tab active text-sm md:text-base font-semibold py-2 px-4 rounded-full bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-slate-50">ChatGPT</button>
+                <button data-platform="gemini" class="platform-tab text-sm md:text-base font-semibold py-2 px-4 rounded-full bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-slate-50">Gemini</button>
+                <button data-platform="claude" class="platform-tab text-sm md:text-base font-semibold py-2 px-4 rounded-full bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-slate-50">Claude</button>
+                <button data-platform="perplexity" class="platform-tab text-sm md:text-base font-semibold py-2 px-4 rounded-full bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-slate-50">Perplexity</button>
+            </div>
+            <div id="platform-content" class="bg-white p-6 sm:p-8 rounded-xl shadow-lg min-h-[350px]">
+            </div>
+        </section>
         
-        const tag = btn.dataset.filter;
-        
-        // Filter cards
-        cards.forEach(card => {
-          if (tag === 'all') {
-            card.dataset.hide = 'false';
-          } else {
-            card.dataset.hide = !card.dataset.tags.includes(tag);
-          }
-        });
-      });
+        <section id="tasks" class="mb-16 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-center text-slate-800 mb-2">Clinical & Academic Task Recommendations</h3>
+            <p class="text-center text-slate-600 mb-8 max-w-2xl mx-auto">
+                The best AI depends on the task. Select your role to see our top recommendations for common activities in medical education.
+            </p>
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+                <button data-persona="designer" class="persona-btn active text-sm md:text-base font-semibold py-2 px-4 rounded-full bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-slate-50">📚 Curriculum Designer</button>
+                <button data-persona="educator" class="persona-btn text-sm md:text-base font-semibold py-2 px-4 rounded-full bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-slate-50">🩺 Clinical Educator</button>
+                <button data-persona="researcher" class="persona-btn text-sm md:text-base font-semibold py-2 px-4 rounded-full bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-slate-50">🔬 Medical Researcher</button>
+                <button data-persona="admin" class="persona-btn text-sm md:text-base font-semibold py-2 px-4 rounded-full bg-white shadow-sm border border-slate-200 text-slate-700 hover:bg-slate-50">💼 Department Head</button>
+            </div>
+            <div id="use-case-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>
+        </section>
+
+        <section id="pricing" class="scroll-mt-20">
+            <h3 class="text-3xl font-bold text-center text-slate-800 mb-2">Subscription Plans & Value</h3>
+             <p class="text-center text-slate-600 mb-8 max-w-2xl mx-auto">
+                Most platforms offer a free tier for basic use and a ~$20/month plan for advanced features. Here's a look at what you get for your investment.
+            </p>
+            <div class="overflow-x-auto bg-white rounded-xl shadow-lg p-2">
+                <table class="min-w-full divide-y divide-slate-200">
+                    <thead class="bg-slate-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-slate-600 uppercase tracking-wider">Plan Tier</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-slate-600 uppercase tracking-wider">ChatGPT</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-slate-600 uppercase tracking-wider">Gemini</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-slate-600 uppercase tracking-wider">Claude</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-slate-600 uppercase tracking-wider">Perplexity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pricing-table-body" class="bg-white divide-y divide-slate-200 text-sm">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const platformData = {
+        chatgpt: {
+            title: "ChatGPT: The Versatile Content Creator",
+            content: `
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Best For: Creative & Varied Tasks</h4>
+                        <p class="text-slate-600">Excellent for brainstorming, drafting lesson plans, generating diverse patient case studies, and creating multiple-choice questions. Its vast ecosystem of custom "GPTs" allows for specialized tasks like creating diagrams or analyzing uploaded documents.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Key Feature: Advanced Data Analysis & Visualization</h4>
+                        <p class="text-slate-600">Can analyze spreadsheets (e.g., student performance data) and generate charts directly within the chat interface, making it a powerful tool for academic administration and simple data exploration.</p>
+                    </div>
+                </div>
+            `
+        },
+        gemini: {
+            title: "Gemini: The Integrated Productivity Hub",
+            content: `
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Best For: Workflow & Document Management</h4>
+                        <p class="text-slate-600">Unmatched for users embedded in the Google ecosystem. It can summarize meetings in Google Meet, draft emails in Gmail, and create presentations in Slides, streamlining administrative and collaborative tasks for educators.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Key Feature: Native Multimodality</h4>
+                        <p class="text-slate-600">Built to understand and process text, images, and video simultaneously. This is useful for analyzing medical imaging (for educational purposes), creating visual aids, or summarizing video lectures.</p>
+                    </div>
+                </div>
+            `
+        },
+        claude: {
+            title: "Claude: The Long-Form Document Analyst",
+            content: `
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Best For: Dense Text & Policy Analysis</h4>
+                        <p class="text-slate-600">The best choice for working with large documents. It can read and accurately summarize multiple research papers, analyze lengthy curriculum accreditation standards, or review departmental policies for consistency and clarity.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Key Feature: Constitutional AI & Safety</h4>
+                        <p class="text-slate-600">Its focus on safety and reliability makes it a strong candidate for institutional use where risk management is a priority, especially when handling sensitive (but non-PHI) information.</p>
+                    </div>
+                </div>
+            `
+        },
+        perplexity: {
+            title: "Perplexity: The Evidence-Based Answer Engine",
+            content: `
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Best For: Literature Reviews & Factual Queries</h4>
+                        <p class="text-slate-600">Essentially a super-powered search engine. It answers questions with up-to-date, cited sources, making it the most reliable tool for literature searches, fact-checking, and staying current with the latest medical research.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Key Feature: Focused Search</h4>
+                        <p class="text-slate-600">Allows you to restrict searches to specific sources, such as "Academic" (searching only scholarly papers) or "YouTube" (for finding educational videos). This precision is invaluable for targeted research.</p>
+                    </div>
+                </div>
+            `
+        }
+    };
+
+    const useCaseData = {
+        designer: [
+            { rank: 'Winner', platform: 'ChatGPT', reason: 'Excellent for brainstorming curriculum modules, generating diverse MCQs, and creating varied patient scenarios for problem-based learning (PBL).' },
+            { rank: 'Runner-up', platform: 'Gemini', reason: 'Strong at structuring content and creating presentations in Google Slides. Great for building a cohesive set of lecture notes and visual aids.' },
+            { rank: 'Specialist', platform: 'Claude', reason: 'Best for analyzing and ensuring alignment with long, complex accreditation documents or institutional learning objectives.' }
+        ],
+        educator: [
+            { rank: 'Winner', platform: 'ChatGPT', reason: 'Its versatility makes it ideal for day-to-day teaching tasks, from generating OSCE checklists to creating formative feedback for student write-ups.' },
+            { rank: 'Runner-up', platform: 'Perplexity', reason: 'Perfect for answering specific clinical questions with up-to-date, cited evidence during teaching rounds or precepting sessions.' },
+            { rank: 'Specialist', platform: 'Gemini', reason: 'Its ability to analyze images and videos is useful for creating teaching materials based on de-identified medical imaging or procedural videos.' }
+        ],
+        researcher: [
+            { rank: 'Winner', platform: 'Perplexity', reason: 'Unbeatable for literature reviews. Its direct, cited answers and ability to focus on academic sources dramatically speeds up the research process.' },
+            { rank: 'Runner-up', platform: 'Claude', reason: 'Superior for synthesizing information from multiple PDFs at once. Feed it 5-10 research papers and ask it to identify common themes or gaps in the literature.' },
+            { rank: 'Contender', platform: 'ChatGPT', reason: 'Its Advanced Data Analysis feature is useful for preliminary analysis of research data and generating visualizations for posters or presentations.' }
+        ],
+        admin: [
+            { rank: 'Winner', platform: 'Gemini', reason: 'Deep integration with Google Workspace automates administrative work. Ideal for summarizing meeting minutes, drafting official emails, and managing schedules.' },
+            { rank: 'Runner-up', platform: 'Claude', reason: 'The best tool for drafting, reviewing, and comparing lengthy documents like departmental policies, budgets, or strategic plans.' },
+            { rank: 'Contender', platform: 'ChatGPT', reason: 'Offers robust Team plans with administrative controls, making it a good all-around choice for equipping a department with a versatile AI tool.' }
+        ]
+    };
+
+    const pricing = [
+        { tier: 'Free', chatgpt: 'Access to GPT-4o mini, with usage caps.', gemini: 'Access to Gemini 2.0 Flash, standard features.', claude: 'Limited access to Sonnet model, daily caps.', perplexity: 'Unlimited concise searches, 3 Pro searches/day.' },
+        { tier: 'Individual Pro (~$20/mo)', chatgpt: 'Full access to GPT-5, advanced data analysis, custom GPTs.', gemini: 'Gemini 2.5 Pro, deep Workspace integration, more storage.', claude: '5x more usage, access to most powerful models.', perplexity: '500+ Pro searches, access to top-tier models (GPT-5, Claude 4).' },
+        { tier: 'Team/Enterprise', chatgpt: 'Shared workspace, admin controls, enhanced security.', gemini: 'AI features directly in Workspace apps (Docs, Meet).', claude: 'Collaboration tools, higher usage limits for teams.', perplexity: 'Centralized billing, organizational features.' },
+    ];
+
+    // --- Chart.js Radar Chart ---
+    const ctx = document.getElementById('strategyRadarChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Creative Ideation', 'Workflow Automation', 'Long-Form Analysis', 'Cited Research', 'Data Visualization'],
+            datasets: [{
+                label: 'ChatGPT',
+                data: [5, 3, 3, 3, 5],
+                backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                borderColor: 'rgba(239, 68, 68, 1)',
+                borderWidth: 2
+            }, {
+                label: 'Gemini',
+                data: [4, 5, 4, 4, 4],
+                backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                borderColor: 'rgba(59, 130, 246, 1)',
+                borderWidth: 2
+            }, {
+                label: 'Claude',
+                data: [4, 3, 5, 3, 2],
+                backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                borderColor: 'rgba(249, 115, 22, 1)',
+                borderWidth: 2
+            }, {
+                label: 'Perplexity',
+                data: [2, 2, 4, 5, 1],
+                backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                borderColor: 'rgba(16, 185, 129, 1)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                r: {
+                    angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                    grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                    pointLabels: { font: { size: 12 }, color: '#334155' },
+                    suggestedMin: 0,
+                    suggestedMax: 5,
+                    ticks: {
+                        stepSize: 1,
+                        backdropColor: 'rgba(255, 255, 255, 0.75)'
+                    }
+                }
+            },
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.dataset.label}: ${context.raw}`;
+                        }
+                    }
+                }
+            }
+        }
     });
-  </script>
+
+    // --- Tab and Persona Logic ---
+    const platformTabs = document.querySelectorAll('.platform-tab');
+    const platformContent = document.getElementById('platform-content');
+    const personaBtns = document.querySelectorAll('.persona-btn');
+    const useCaseContent = document.getElementById('use-case-content');
+
+    function updatePlatformContent(platform) {
+        platformContent.innerHTML = `
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">${platformData[platform].title}</h3>
+            ${platformData[platform].content}
+        `;
+    }
+
+    function updateUseCaseContent(persona) {
+        useCaseContent.innerHTML = useCaseData[persona].map(item => `
+            <div class="bg-white p-6 rounded-xl shadow-md border-l-4 ${item.rank === 'Winner' ? 'border-cyan-500' : 'border-slate-300'}">
+                <span class="inline-block bg-cyan-100 text-cyan-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">${item.rank}</span>
+                <h4 class="font-bold text-lg text-slate-800">${item.platform}</h4>
+                <p class="text-slate-600 mt-1 text-sm">${item.reason}</p>
+            </div>
+        `).join('');
+    }
+
+    platformTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            platformTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            updatePlatformContent(tab.dataset.platform);
+        });
+    });
+
+    personaBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            personaBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateUseCaseContent(btn.dataset.persona);
+        });
+    });
+
+    // --- Pricing Table Population ---
+    const pricingTbody = document.getElementById('pricing-table-body');
+    pricingTbody.innerHTML = pricing.map(p => `
+        <tr class="hover:bg-slate-50">
+            <td class="px-6 py-4 font-medium text-slate-900">${p.tier}</td>
+            <td class="px-6 py-4 text-slate-600">${p.chatgpt}</td>
+            <td class="px-6 py-4 text-slate-600">${p.gemini}</td>
+            <td class="px-6 py-4 text-slate-600">${p.claude}</td>
+            <td class="px-6 py-4 text-slate-600">${p.perplexity}</td>
+        </tr>
+    `).join('');
+
+    // --- Initial Content Load ---
+    updatePlatformContent('chatgpt');
+    updateUseCaseContent('designer');
+});
+</script>
+
 </body>
 </html>
