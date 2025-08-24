@@ -1,85 +1,76 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a//dev/null b/index.html
-index 0000000000000000000000000000000000000000..e0f138b4d92f792e92d077ddf830812c1dd7ec24 100644
---- a//dev/null
-+++ b/index.html
-@@ -0,0 +1,76 @@
-+<!DOCTYPE html>
-+<html lang="en">
-+<head>
-+  <meta charset="UTF-8">
-+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-+  <title>LLM Comparison for Medical Educators</title>
-+  <link rel="stylesheet" href="styles.css">
-+</head>
-+<body>
-+  <header>
-+    <h1>General Purpose LLMs for Medical Educators</h1>
-+    <p>This site compares features of major language models to support teaching and research in medicine.</p>
-+  </header>
-+  <main>
-+    <table id="llm-table">
-+      <thead>
-+        <tr>
-+          <th>Model</th>
-+          <th>Developer</th>
-+          <th>Access</th>
-+          <th>Strengths for Medical Education</th>
-+          <th>Considerations</th>
-+        </tr>
-+      </thead>
-+      <tbody>
-+        <tr>
-+          <td>ChatGPT (GPT-4o)</td>
-+          <td>OpenAI</td>
-+          <td>Web app, API (paid tiers)</td>
-+          <td>Broad knowledge base, plugins, code interpreter, simulation of clinical scenarios.</td>
-+          <td>May hallucinate; patient data must be de-identified.</td>
-+        </tr>
-+        <tr>
-+          <td>Claude 3</td>
-+          <td>Anthropic</td>
-+          <td>Web app, API; free tier available</td>
-+          <td>200K+ token context; emphasis on ethical and safe responses.</td>
-+          <td>Occasionally refuses queries viewed as risky; fewer integrations.</td>
-+        </tr>
-+        <tr>
-+          <td>Google Gemini 1.5</td>
-+          <td>Google DeepMind</td>
-+          <td>Web, API; integrated with Google products</td>
-+          <td>Strong multimodal reasoning; image analysis for diagrams and radiographs.</td>
-+          <td>Full features require Google Cloud; licensing depends on region.</td>
-+        </tr>
-+        <tr>
-+          <td>Mistral Large</td>
-+          <td>Mistral AI</td>
-+          <td>API; some models open-source</td>
-+          <td>Efficient, open weights allow on-prem deployment for protected data.</td>
-+          <td>Smaller ecosystem; technical setup required.</td>
-+        </tr>
-+        <tr>
-+          <td>Qwen2</td>
-+          <td>Alibaba</td>
-+          <td>Open-source; API via Alibaba Cloud</td>
-+          <td>Strong multilingual support (incl. Chinese); adaptable for research.</td>
-+          <td>Documentation primarily in Chinese; deployment expertise needed.</td>
-+        </tr>
-+        <tr>
-+          <td>DeepSeek</td>
-+          <td>DeepSeek AI</td>
-+          <td>Open-source models</td>
-+          <td>Emphasis on reasoning tasks; suitable for fine-tuning on medical datasets.</td>
-+          <td>Community support still growing; quality varies by checkpoint.</td>
-+        </tr>
-+      </tbody>
-+    </table>
-+    <p class="disclaimer">Information current as of 2024. Capabilities and access may change; always review latest documentation before clinical use.</p>
-+  </main>
-+  <footer>
-+    <p>Created for medical educators exploring AI tools.</p>
-+  </footer>
-+</body>
-+</html>
- 
-EOF
-)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Comparison for Medical Educators</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>General Purpose LLMs for Medical Educators</h1>
+    <p>This site compares features of major language models to support teaching and research in medicine.</p>
+  </header>
+  <main>
+    <table id="llm-table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Developer</th>
+          <th>Access</th>
+          <th>Strengths for Medical Education</th>
+          <th>Considerations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ChatGPT (GPT-4o)</td>
+          <td>OpenAI</td>
+          <td>Web app, API (paid tiers)</td>
+          <td>Broad knowledge base, plugins, code interpreter, simulation of clinical scenarios.</td>
+          <td>May hallucinate; patient data must be de-identified.</td>
+        </tr>
+        <tr>
+          <td>Claude 3</td>
+          <td>Anthropic</td>
+          <td>Web app, API; free tier available</td>
+          <td>200K+ token context; emphasis on ethical and safe responses.</td>
+          <td>Occasionally refuses queries viewed as risky; fewer integrations.</td>
+        </tr>
+        <tr>
+          <td>Google Gemini 1.5</td>
+          <td>Google DeepMind</td>
+          <td>Web, API; integrated with Google products</td>
+          <td>Strong multimodal reasoning; image analysis for diagrams and radiographs.</td>
+          <td>Full features require Google Cloud; licensing depends on region.</td>
+        </tr>
+        <tr>
+          <td>Mistral Large</td>
+          <td>Mistral AI</td>
+          <td>API; some models open-source</td>
+          <td>Efficient, open weights allow on-prem deployment for protected data.</td>
+          <td>Smaller ecosystem; technical setup required.</td>
+        </tr>
+        <tr>
+          <td>Qwen2</td>
+          <td>Alibaba</td>
+          <td>Open-source; API via Alibaba Cloud</td>
+          <td>Strong multilingual support (incl. Chinese); adaptable for research.</td>
+          <td>Documentation primarily in Chinese; deployment expertise needed.</td>
+        </tr>
+        <tr>
+          <td>DeepSeek</td>
+          <td>DeepSeek AI</td>
+          <td>Open-source models</td>
+          <td>Emphasis on reasoning tasks; suitable for fine-tuning on medical datasets.</td>
+          <td>Community support still growing; quality varies by checkpoint.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="disclaimer">Information current as of 2024. Capabilities and access may change; always review latest documentation before clinical use.</p>
+  </main>
+  <footer>
+    <p>Created for medical educators exploring AI tools.</p>
+  </footer>
+</body>
+</html>
