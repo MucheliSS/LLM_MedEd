@@ -1,8 +1,8 @@
-# LLMs for Medical Educators: 2025 Reference Guide
+# LLMs for Medical Educators: 2026 Reference Guide
 
 A curated, educator-friendly reference for **general-purpose Large Language Models** that medical and health professions educators can readily access for teaching, assessment, and educational research.
 
-> **Snapshot disclaimer (August 2025):** Capabilities, pricing, and access tiers change frequently. Always confirm details with the official links provided before institutional adoption.
+> **Snapshot disclaimer (January 2026):** Capabilities, pricing, and access tiers change frequently. Always confirm details with the official links provided before institutional adoption.
 
 ---
 
